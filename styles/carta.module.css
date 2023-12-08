@@ -1,0 +1,67 @@
+.carta {
+    max-width: 75%;
+    margin: 1rem;
+    flex-basis: 45%;
+    padding: 1.5rem;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  
+  .carta:hover,
+  .carta:focus,
+  .carta:active {
+    color: #0070f3;
+    border-color: #0070f3;
+  }
+  
+  .carta h5 {
+    margin: 0;
+    font-size: 1.0rem;
+    color: #252525;
+  }
+  
+  .carta p {
+    font-size: 1rem;
+    color: #919191;
+  }
+
+.hero{
+    display: flex;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen{
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 15px;
+    padding: 0 0.5rem;
+}
+
+.letras{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.stock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.stock p{
+    margin-left: 1rem;
+}
+.botones{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-left: 2rem;
+}
