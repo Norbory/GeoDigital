@@ -1,6 +1,16 @@
 import styles from '../styles/carta.module.css';
 
-export default function Carta(){
+interface CartaProps {
+    nombre: string;
+    descripcion: string;
+    ubicacion: string;
+    stock: number;
+    onRetirar: () => void;
+    onAumentar: () => void;
+    onSoporte: () => void;
+  }
+
+  const Carta: React.FC<CartaProps> = ({ nombre, descripcion, ubicacion, stock, onRetirar, onAumentar, onSoporte }) => {
     return(
         <div className={styles.carta}>
             <div className={styles.hero}>
@@ -8,31 +18,27 @@ export default function Carta(){
                 <div className={styles.forma}>
                     <div className={styles.letras}>
                         <h5>Nombre: </h5>
-                        <p>Tuberia de acero de 4"</p>  
+                        <p>{nombre}</p>  
                     </div>
                     <div className={styles.letras}>
                         <h5>Descripción: </h5>
-                        <p>
-                            Tuberia metalica de cuatro pulgadas utilizada para
-                            el recubrimiento de los sensores piezometricos
-                            durante el proceso de recrecimiento
-                        </p>
+                        <p>{descripcion}</p>
                     </div>
                     <div className={styles.letras}>
                         <h5>Ubicación: </h5>
-                        <p>Almacen de Construplan en la cumbre</p>
+                        <p>{ubicacion}</p>
                     </div>
                 </div>
             </div>
             <div className={styles.stock}>
                 <div>
                     <h5>STOCK:</h5>
-                    <p>15</p>
+                    <p>{stock}</p>
                 </div>
                 <div className={styles.botones}>
-                    <button>Retirar material</button>
-                    <button>Aumentar material</button>
-                    <button>LLamar por soporte</button>  
+                    <button onClick={()=>onRetirar()}>Retirar material</button>
+                    <button onClick={()=>onAumentar()}>Aumentar material</button>
+                    <button onClick={()=>onSoporte()}>LLamar por soporte</button>  
                 </div> 
                 
 
@@ -40,3 +46,5 @@ export default function Carta(){
         </div>
     );
 }
+
+export default Carta;
