@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Display from '../components/display.tsx';
+import useProject from '../hooks/useProject'
 
 export default function Home() {
   const [displayPage, setDisplayPage] = useState('/');
+  const { data: listProjects, loading, error } = useProject('http://localhost:3001/api/projects');
 
   const handleButtonClick = (page) => {
     setDisplayPage(page);
@@ -28,10 +30,15 @@ export default function Home() {
           <div className={styles.lista}>
             <h3>PROYECTOS ACTUALES</h3>
             <ul>
-              <li>ATACOCHA</li>
-              <li>EL PORVENIR</li>
-              <li>SELENE</li>
-              <li>INMACULADA</li>
+              {loading ? (
+                <p>Cargando proyectos...</p>
+              ) : error ? (
+                <p>Error al cargar proyectos.</p>
+              ) : (
+                listProjects.map((project, index) => (
+                  <li key={index}>{project.name}</li>
+                ))
+              )}
             </ul>
           </div>
           <div className={styles.showroom}>
