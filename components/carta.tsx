@@ -2,6 +2,7 @@ import styles from '../styles/carta.module.css';
 
 interface CartaProps {
     nombre: string;
+    url: string;
     descripcion: string;
     ubicacion: string;
     stock: number;
@@ -10,11 +11,11 @@ interface CartaProps {
     onSoporte: () => void;
   }
 
-  const Carta: React.FC<CartaProps> = ({ nombre, descripcion, ubicacion, stock, onRetirar, onAumentar, onSoporte }) => {
+  const Carta: React.FC<CartaProps> = ({ nombre, url, descripcion, ubicacion, stock, onRetirar, onAumentar, onSoporte }) => {
     return(
         <div className={styles.carta}>
             <div className={styles.hero}>
-                <img src="https://www.turflexperu.com/wp-content/uploads/2018/12/Tubo-PVC-Agua-1.jpg" alt='Tuberias metalicas' className={styles.imagen}></img>
+                <img src={url} alt='Tuberias metalicas' className={styles.imagen}></img>
                 <div className={styles.forma}>
                     <div className={styles.letras}>
                         <h5>Nombre: </h5>
@@ -38,7 +39,7 @@ interface CartaProps {
                 <div className={styles.botones}>
                     <button onClick={()=>onRetirar()}>Retirar material</button>
                     <button onClick={()=>onAumentar()}>Aumentar material</button>
-                    <button onClick={()=>onSoporte()}>LLamar por soporte</button>  
+                    <button onClick={()=>onSoporte()}>Llamar por soporte</button>  
                 </div> 
                 
 

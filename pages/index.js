@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import Display from '../components/display.tsx';
-import useProject from '../hooks/useProject'
+import Display from '../components/display';
+import useProject from '../hooks/useProject';
+
 
 export default function Home() {
   const [displayPage, setDisplayPage] = useState('/');
